@@ -1,0 +1,107 @@
+[gd_scene load_steps=20 format=3 uid="uid://kix2ukb7r7g3"]
+
+[ext_resource type="Script" path="res://Player/Player.gd" id="1_jv28e"]
+[ext_resource type="Texture2D" uid="uid://dkuqee7lsx23u" path="res://Sunny-land-files/Graphical Assets/sprites/player/crouch/player-crouch-1.png" id="2_8sxvq"]
+[ext_resource type="Texture2D" uid="uid://gr80ig443gma" path="res://Sunny-land-files/Graphical Assets/sprites/player/crouch/player-crouch-2.png" id="3_tjgw1"]
+[ext_resource type="Texture2D" uid="uid://clc6io72nflna" path="res://Sunny-land-files/Graphical Assets/sprites/player/hurt/player-hurt-1.png" id="4_u1d8a"]
+[ext_resource type="Texture2D" uid="uid://fqas42syqsii" path="res://Sunny-land-files/Graphical Assets/sprites/player/hurt/player-hurt-2.png" id="5_a2f4j"]
+[ext_resource type="Texture2D" uid="uid://de81akghve4js" path="res://Sunny-land-files/Graphical Assets/sprites/player/idle/player-idle-1.png" id="6_sajnt"]
+[ext_resource type="Texture2D" uid="uid://hautr101nx66" path="res://Sunny-land-files/Graphical Assets/sprites/player/idle/player-idle-2.png" id="7_38ok6"]
+[ext_resource type="Texture2D" uid="uid://cqxwyobubf5jl" path="res://Sunny-land-files/Graphical Assets/sprites/player/idle/player-idle-3.png" id="8_1a5nh"]
+[ext_resource type="Texture2D" uid="uid://cqfrba8pxjqpf" path="res://Sunny-land-files/Graphical Assets/sprites/player/idle/player-idle-4.png" id="9_ehc0n"]
+[ext_resource type="Texture2D" uid="uid://c6nxixrsqs6hv" path="res://Sunny-land-files/Graphical Assets/sprites/player/jump/player-jump-1.png" id="10_xxmue"]
+[ext_resource type="Texture2D" uid="uid://chtukqiwa2u7m" path="res://Sunny-land-files/Graphical Assets/sprites/player/jump/player-jump-2.png" id="11_sgl6o"]
+[ext_resource type="Texture2D" uid="uid://bd7b6ricwvwnn" path="res://Sunny-land-files/Graphical Assets/sprites/player/run/player-run-1.png" id="12_ljfpm"]
+[ext_resource type="Texture2D" uid="uid://bfi1xs7oxdaat" path="res://Sunny-land-files/Graphical Assets/sprites/player/run/player-run-2.png" id="13_t2pq3"]
+[ext_resource type="Texture2D" uid="uid://xhf4h1p7xgku" path="res://Sunny-land-files/Graphical Assets/sprites/player/run/player-run-3.png" id="14_8f133"]
+[ext_resource type="Texture2D" uid="uid://bnqle6kneuw4x" path="res://Sunny-land-files/Graphical Assets/sprites/player/run/player-run-4.png" id="15_0xyn4"]
+[ext_resource type="Texture2D" uid="uid://jcftlicdwkhb" path="res://Sunny-land-files/Graphical Assets/sprites/player/run/player-run-5.png" id="16_j3cti"]
+[ext_resource type="Texture2D" uid="uid://d1624omthxa27" path="res://Sunny-land-files/Graphical Assets/sprites/player/run/player-run-6.png" id="17_1ehk8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5r1ys"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_038xy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8sxvq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tjgw1")
+}],
+"loop": true,
+"name": &"crouch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_u1d8a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_a2f4j")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_sajnt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_38ok6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_1a5nh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ehc0n")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_xxmue")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_sgl6o")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_ljfpm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_t2pq3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_8f133")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_0xyn4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_j3cti")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_1ehk8")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_jv28e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_5r1ys")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_038xy")
+animation = &"crouch"
